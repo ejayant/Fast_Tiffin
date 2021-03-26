@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "576201451413",
+    "project_id": "fasttiffin-e2869",
+    "storage_bucket": "fasttiffin-e2869.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576201451413:android:1d7fc3555ee957a664789c",
+        "android_client_info": {
+          "package_name": "com.capstone.fasttiffin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576201451413-kmvi4hqjnee4abr4efv9iuk0u9bm5n8a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.capstone.fasttiffin",
+            "certificate_hash": "a2fd4a36888c30f0fd56e9e288d9a8b0fa447823"
+          }
+        },
+        {
+          "client_id": "576201451413-eks9is12baq7hjd6laj9gas7b4me5uif.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7pTmfwb8ERXDukpugDmBXt3eRAsQ27yk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576201451413-eks9is12baq7hjd6laj9gas7b4me5uif.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
