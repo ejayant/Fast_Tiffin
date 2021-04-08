@@ -53,7 +53,7 @@
     <!--    <string name="title_activity_dashboard">MainActivity</string>-->
 
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_products">Products</string>
+    <string name="title_products">Foods</string>
     <string name="title_orders">Orders</string>
 
     <string name="double_click_back">Please click back again to exit.</string>
@@ -63,37 +63,37 @@
     <string name="lbl_edit">Edit</string>
     <string name="lbl_addresses">Addresses</string>
     <string name="btn_lbl_logout">Logout</string>
-    <string name="action_add_product">Add Product</string>
+    <string name="action_add_product">Add Food Item</string>
 
-    <string name="title_add_product">ADD PRODUCT</string>
-    <string name="et_hint_product_title">Product Title</string>
-    <string name="et_hint_product_price">Product Price ($)</string>
-    <string name="et_hint_product_description">Product Description</string>
-    <string name="et_hint_product_quantity">Product Quantity</string>
+    <string name="title_add_product">ADD FOOD ITEM</string>
+    <string name="et_hint_product_title">Food Title</string>
+    <string name="et_hint_product_price">Food Price (₹)</string>
+    <string name="et_hint_product_description">Food Description</string>
+    <string name="et_hint_product_quantity">Food Quantity</string>
 
-    <string name="err_msg_select_product_image">Please select product image.</string>
-    <string name="err_msg_enter_product_title">Please enter product title.</string>
-    <string name="err_msg_enter_product_price">Please enter product price.</string>
-    <string name="err_msg_enter_product_description">Please enter product description.</string>
-    <string name="err_msg_enter_product_quantity">Please enter product quantity.</string>
+    <string name="err_msg_select_product_image">Please select food image.</string>
+    <string name="err_msg_enter_product_title">Please enter food title.</string>
+    <string name="err_msg_enter_product_price">Please enter food price.</string>
+    <string name="err_msg_enter_product_description">Please enter food description.</string>
+    <string name="err_msg_enter_product_quantity">Please enter food quantity.</string>
 
-    <string name="product_uploaded_success_message">Your product was uploaded successfully.</string>
-    <string name="no_products_added_yet">No products added yet!</string>
+    <string name="product_uploaded_success_message">Your food was uploaded successfully.</string>
+    <string name="no_products_added_yet">No foods added yet!</string>
     <string name="no_dashboard_item_found">No items found!</string>
 
 
-    <string name="product_delete_success_message">Your product was deleted successfully.</string>
+    <string name="product_delete_success_message">Your food was deleted successfully.</string>
     <string name="delete_dialog_title">Delete</string>
     <string name="delete_dialog_message">Are you sure you want to delete the product?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
-    <string name="title_product_details">PRODUCT DETAILS</string>
-    <string name="lbl_product_description">Product Description</string>
+    <string name="title_product_details">FOOD DETAILS</string>
+    <string name="lbl_product_description">Food Description</string>
     <string name="lbl_product_details_stock_quantity">Food Quantity</string>
 
     <string name="btn_label_add_to_cart">ADD TO CART</string>
-    <string name="success_msg_item_added_to_cart">Product is added to your cart.</string>
+    <string name="success_msg_item_added_to_cart">Food is added to your cart.</string>
     <string name="btn_lbl_go_to_cart">GO TO CART</string>
 
     <string name="title_my_cart">MY CART</string>
@@ -111,4 +111,60 @@
         <item>Half</item>
         <item>Full</item>
     </string-array>
+
+
+    <string name="title_address_list">ADDRESS LIST</string>
+    <string name="no_address_found">No Address Found!</string>
+    <string name="lbL_add_address">Add Address</string>
+
+    <string name="title_add_address">ADD ADDRESS</string>
+    <string name="hint_full_name">Full name</string>
+    <string name="hint_phone_number">Phone number</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_zip_code">ZipCode</string>
+    <string name="hint_additional_note">Additional note</string>
+    <string name="hint_other_details">Other details</string>
+    <string name="lbl_home">HOME</string>
+    <string name="lbl_office">OFFICE</string>
+    <string name="lbl_other">OTHER</string>
+
+
+    <string name="err_msg_please_enter_full_name">Please enter full name.</string>
+    <string name="err_msg_please_enter_phone_number">Please enter phone number.</string>
+    <string name="err_msg_please_enter_address">Please enter address.</string>
+    <string name="err_msg_please_enter_zip_code">Please enter zip-code.</string>
+    <string name="err_msg_please_enter_other_details">Please enter other details.</string>
+
+    <string name="err_your_address_added_successfully">Your address was added successfully.</string>
+
+    <string name="title_edit_address">EDIT ADDRESS</string>
+    <string name="btn_lbl_update">UPDATE</string>
+    <string name="msg_your_address_updated_successfully">Your address was updated successfully.</string>
+
+    <string name="err_your_address_deleted_successfully">Your address was deleted successfully.</string>
+
+    <string name="title_select_address">SELECT ADDRESS</string>
+
+    <string name="title_checkout">CHECKOUT</string>
+    <string name="checkout_lbl_product_items">Food Items</string>
+    <string name="checkout_lbl_selected_address">Selected Address</string>
+    <string name="checkout_lbl_items_receipt">Food Receipt</string>
+    <string name="lbl_payment_mode">Payment Mode</string>
+    <string name="lbl_cash_on_delivery">Cash On Delivery</string>
+    <string name="btn_lbl_place_order">PLACE ORDER</string>
+
+    <string name="no_orders_placed_yet">No orders placed yet!</string>
+
+    <string name="title_my_order_details">MY ORDER DETAILS</string>
+    <string name="order_details_lbl">Order Details</string>
+    <string name="order_details_lbl_order_id">Order ID</string>
+    <string name="order_details_lbl_order_date">Order Date</string>
+    <string name="order_details_lbl_order_status">Order Status</string>
+    <string name="order_status_pending">Pending</string>
+    <string name="order_details_lbl_shipping_address">Shipping Address</string>
+
+    <string name="order_status_in_process">In Process</string>
+    <string name="order_status_delivered">Delivered</string>
+
+
 </resources>

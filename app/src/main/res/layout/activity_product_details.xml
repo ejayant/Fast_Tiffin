@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/item_value_text_color"
                     android:textSize="@dimen/product_details_title_textSize"
-                    tools:text="Product Title" />
+                    tools:text="Food Name" />
 
                 <com.capstone.fasttiffin.utils.FTTextViewRegular
                     android:id="@+id/tv_product_details_price"
@@ -119,7 +119,8 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_product_details_description">
+                app:layout_constraintTop_toBottomOf="@id/tv_product_details_description"
+                android:visibility="gone">
 
                 <com.capstone.fasttiffin.utils.FTTextViewBold
                     android:id="@+id/tv_product_details_quantity"

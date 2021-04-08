@@ -36,6 +36,11 @@ class SettingsActivity : BaseActivity() {
             intent.putExtra(Constants.EXTRA_USER_DETAILS, mUserDetails)
             startActivity(intent)
         }
+
+        binding.llAddress.setOnClickListener {
+            val intent = Intent(this, AddressListActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     // Back Button Code In Toolbar

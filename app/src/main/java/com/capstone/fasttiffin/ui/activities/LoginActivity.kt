@@ -29,8 +29,8 @@ class LoginActivity : BaseActivity() {
         binding.tvForgotPassword.setOnClickListener {
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent)
-
         }
+
     }
 
     private fun validateLoginDetails(): Boolean {

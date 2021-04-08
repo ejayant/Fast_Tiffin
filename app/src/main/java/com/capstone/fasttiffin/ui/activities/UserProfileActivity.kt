@@ -17,9 +17,12 @@ import com.capstone.fasttiffin.firestore.FirestoreClass
 import com.capstone.fasttiffin.models.User
 import com.capstone.fasttiffin.utils.Constants
 import com.capstone.fasttiffin.utils.GlideLoader
+import com.google.firebase.auth.FirebaseAuth
 import java.io.IOException
 
 class UserProfileActivity : BaseActivity() {
+
+
     private lateinit var mUserDetails: User
     private var mSelectedImageFileUri: Uri? = null
     private var mUserProfileImageURL: String = ""
@@ -29,6 +32,7 @@ class UserProfileActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityUserProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
 
         if(intent.hasExtra(Constants.EXTRA_USER_DETAILS)){

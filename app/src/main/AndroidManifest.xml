@@ -11,9 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FastTiffin">
-        <activity android:name=".ui.activities.CartListActivity"
+        <activity
+            android:name=".ui.activities.MyOrdersDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.FastTiffin.NoActionBarCustom"/>
+        <activity
+            android:name=".ui.activities.CheckoutActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FastTiffin.NoActionBarCustom" />
+        <activity
+            android:name=".ui.activities.AddEditAddressActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FastTiffin.NoActionBarCustom" />
+        <activity
+            android:name=".ui.activities.AddressListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FastTiffin.NoActionBarCustom" />
+        <activity
+            android:name=".ui.activities.CartListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FastTiffin.NoActionBarCustom" />
         <activity
             android:name=".ui.activities.ProductDetailsActivity"
             android:screenOrientation="portrait"

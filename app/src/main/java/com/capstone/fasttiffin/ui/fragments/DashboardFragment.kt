@@ -50,7 +50,12 @@ class DashboardFragment : BaseFragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        if(FirestoreClass().getCurrentUserID() == Constants.ADMIN) {
+            inflater.inflate(R.menu.dashboard_menu_admin, menu)
+        }
+        else{
         inflater.inflate(R.menu.dashboard_menu, menu)
+        }
         super.onCreateOptionsMenu(menu, inflater)
     }
 

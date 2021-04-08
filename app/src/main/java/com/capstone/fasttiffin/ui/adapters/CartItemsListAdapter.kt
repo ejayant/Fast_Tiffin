@@ -16,7 +16,8 @@ import com.capstone.fasttiffin.utils.GlideLoader
 
 class CartItemsListAdapter(
     private val context: Context,
-    private val list: ArrayList<CartItem>) : RecyclerView.Adapter<CartItemsListAdapter.CartViewHolder>(){
+    private val list: ArrayList<CartItem>,
+    private val updateCartItems: Boolean) : RecyclerView.Adapter<CartItemsListAdapter.CartViewHolder>(){
 
     class CartViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val cartImage: ImageView = itemView.findViewById(R.id.iv_cart_item_image)
@@ -39,7 +40,7 @@ class CartItemsListAdapter(
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        val model = list[position]
+        var model = list[position]
         GlideLoader(context).loadProfilePicture(model.image, holder.cartImage)
         holder.cartTitle.text = model.title
         holder.cartPrice.text = "₹${model.price}"
@@ -49,14 +50,31 @@ class CartItemsListAdapter(
             holder.cartRemoveButton.visibility = View.GONE
             holder.cartAddButton.visibility = View.GONE
 
+            if(updateCartItems){
+                holder.cartDeleteButton.visibility = View.VISIBLE
+            }
+            else{
+                holder.cartDeleteButton.visibility = View.GONE
+            }
+
             holder.cartQuantity.text = context.resources.getString(R.string.lbl_out_of_stock)
             holder.cartQuantity.setTextColor(
                     ContextCompat.getColor(context,R.color.colorSnackBarError)
             )
         }
         else{
-            holder.cartRemoveButton.visibility = View.VISIBLE
-            holder.cartAddButton.visibility = View.VISIBLE
+            if(updateCartItems){
+                holder.cartRemoveButton.visibility = View.VISIBLE
+                holder.cartAddButton.visibility = View.VISIBLE
+                holder.cartDeleteButton.visibility = View.VISIBLE
+                holder.spinner.visibility = View.VISIBLE
+            }
+            else{
+                holder.cartRemoveButton.visibility = View.GONE
+                holder.cartAddButton.visibility = View.GONE
+                holder.cartDeleteButton.visibility = View.GONE
+                holder.spinner.visibility = View.GONE
+            }
 
             holder.cartQuantity.setTextColor(
                     ContextCompat.getColor(context,R.color.colorSecondaryText)

@@ -6,10 +6,10 @@
         android:icon="@drawable/ic_vector_dashboard"
         android:title="@string/title_dashboard" />
 
-
     <item
-        android:id="@+id/navigation_orders"
-        android:icon="@drawable/ic_vector_orders"
-        android:title="@string/title_orders" />
+        android:id="@+id/navigation_products"
+        android:icon="@drawable/ic_vector_products"
+        android:title="@string/title_products" />
+
 
 </menu>

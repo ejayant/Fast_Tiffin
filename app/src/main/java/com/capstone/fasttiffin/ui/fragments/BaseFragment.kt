@@ -13,13 +13,9 @@ open class BaseFragment : Fragment() {
     private lateinit var binding: FragmentBaseBinding
     private lateinit var mProgressDialog: Dialog
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-       binding = FragmentBaseBinding.inflate(inflater, container, false)
+        binding = FragmentBaseBinding.inflate(inflater, container, false)
         return binding.root
     }
 

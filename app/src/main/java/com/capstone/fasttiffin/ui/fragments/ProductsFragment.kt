@@ -3,17 +3,14 @@ package com.capstone.fasttiffin.ui.fragments
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.capstone.fasttiffin.R
 import com.capstone.fasttiffin.databinding.FragmentProductsBinding
 import com.capstone.fasttiffin.firestore.FirestoreClass
 import com.capstone.fasttiffin.models.Product
 import com.capstone.fasttiffin.ui.activities.AddProductActivity
-import com.capstone.fasttiffin.ui.activities.SettingsActivity
 import com.capstone.fasttiffin.ui.adapters.MyProductsListAdapter
 
 class ProductsFragment : BaseFragment() {
@@ -28,6 +25,7 @@ class ProductsFragment : BaseFragment() {
     ): View? {
         binding = FragmentProductsBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
