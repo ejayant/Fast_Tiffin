@@ -11,7 +11,7 @@ Firebase
 
 ## UI Design
 <div>
-    <img src="loginScreen.png" width="200px"</img> 
-    <img src="registerScreen.png" width="200px"</img>
+    <img src="UI/loginScreen.png" width="200px"</img> 
+    <img src="UI/registerScreen.png" width="200px"</img>
 </div>
 
