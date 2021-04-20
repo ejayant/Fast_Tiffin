@@ -18,8 +18,6 @@ Firebase </br>
     <img src="UI/addAddressScreen.png" width="200px"</img> 
     <img src="UI/addressScreen.png" width="200px"</img>
     <img src="UI/addFoodScreen.png" width="200px"</img> 
-    <img src="UI/foodDetailsScreen.png" width="200px"</img>
-    <img src="UI/aboutScreen.png" width="200px"</img>
-    
+    <img src="UI/foodDetailsScreen.png" width="200px"</img> 
 </div>
 
