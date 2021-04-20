@@ -141,7 +141,7 @@ class ProductDetailsActivity : BaseActivity(),View.OnClickListener {
                 binding.rbHalf -> {
                     val productPrice = (product.price.toInt()/2+10)
                    mProductDetails.price = productPrice.toString()
-                   binding.tvProductDetailsPrice.text = "$₹{productPrice}"
+                   binding.tvProductDetailsPrice.text = "₹${productPrice}"
                 }
                 binding.rbFull -> {
                     val productPrice = (product.price.toInt()*2-20)
