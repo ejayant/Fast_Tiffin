@@ -3,8 +3,8 @@ A full fledged food delivery app with admin and user panel.
 
 
 ## Languages Used
-Kotlin/n
-Android
+Kotlin </br> 
+Android </br>
 XML
 Firebase
 
