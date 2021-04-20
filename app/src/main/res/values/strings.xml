@@ -165,6 +165,7 @@
 
     <string name="order_status_in_process">In Process</string>
     <string name="order_status_delivered">Delivered</string>
+    <string name="btn_lbl_phone">PHONE LOGIN</string>
 
 
 </resources>

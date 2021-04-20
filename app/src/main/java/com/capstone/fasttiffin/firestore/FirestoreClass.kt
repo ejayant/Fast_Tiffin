@@ -23,15 +23,30 @@ class FirestoreClass {
 
     private val mFireStore = Firebase.firestore
 
-    fun registerUser(activity: RegisterActivity, userInfo: User) {
+    fun registerUser(activity: Activity, userInfo: User) {
         mFireStore.collection(Constants.USERS)
                 .document(userInfo.id)
                 .set(userInfo, SetOptions.merge())
                 .addOnSuccessListener {
-                    activity.userRegistrationSuccess()
+                    when(activity){
+                        is RegisterActivity -> {
+                            activity.userRegistrationSuccess()
+                        }
+                        is PhoneAuthVerifyActivity -> {
+                            activity.userRegistrationSuccess()
+                        }
+                    }
+
                 }
                 .addOnFailureListener { e ->
-                    activity.hideProgressDialog()
+                    when(activity){
+                        is RegisterActivity ->{
+                            activity.hideProgressDialog()
+                        }
+                        is PhoneAuthVerifyActivity -> {
+                            activity.hideProgressDialog()
+                        }
+                    }
                     Log.e(activity.javaClass.simpleName, "Error while registering the user", e)
                 }
     }
@@ -58,13 +73,13 @@ class FirestoreClass {
                     val user = document.toObject(User::class.java)!!
 
                     val sharedPreferences = activity.getSharedPreferences(
-                            Constants.FASTTIFFIN_PREFERENCES, Context.MODE_PRIVATE
+                        Constants.FASTTIFFIN_PREFERENCES, Context.MODE_PRIVATE
                     )
 
                     val editor: SharedPreferences.Editor = sharedPreferences.edit()
                     editor.putString(
-                            Constants.LOGGED_IN_USERNAME,
-                            "${user.firstName} ${user.lastName}"
+                        Constants.LOGGED_IN_USERNAME,
+                        "${user.firstName} ${user.lastName}"
                     )
 
                     editor.apply()
@@ -76,8 +91,12 @@ class FirestoreClass {
                         is SettingsActivity -> {
                             activity.userDetailsSuccess(user)
                         }
+                        is PhoneAuthVerifyActivity -> {
+                            activity.userLoggedInSuccess(user)
+                        }
                     }
                 }
+
                 .addOnFailureListener {
                     when (activity) {
                         is LoginActivity -> {
@@ -85,6 +104,10 @@ class FirestoreClass {
                         }
                         is SettingsActivity -> {
                             activity.hideProgressDialog()
+                        }
+                        is PhoneAuthVerifyActivity -> {
+                            activity.hideProgressDialog()
+
                         }
                     }
                     Log.e(activity.javaClass.simpleName, "Error while updating user details ", it)
@@ -634,7 +657,4 @@ class FirestoreClass {
                     Log.e(fragment.javaClass.simpleName, "Error while getting the orders list.", e)
                 }
     }
-
-
-
 }

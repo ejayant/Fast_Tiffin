@@ -27,7 +27,6 @@ class CartItemsListAdapter(
         val cartRemoveButton: ImageButton = itemView.findViewById(R.id.ib_remove_cart_item)
         val cartAddButton: ImageButton = itemView.findViewById(R.id.ib_add_cart_item)
         val cartDeleteButton: ImageButton = itemView.findViewById(R.id.ib_delete_cart_item)
-        val spinner: Spinner = itemView.findViewById(R.id.mySpinner)
 
     }
 
@@ -67,13 +66,13 @@ class CartItemsListAdapter(
                 holder.cartRemoveButton.visibility = View.VISIBLE
                 holder.cartAddButton.visibility = View.VISIBLE
                 holder.cartDeleteButton.visibility = View.VISIBLE
-                holder.spinner.visibility = View.VISIBLE
+
             }
             else{
                 holder.cartRemoveButton.visibility = View.GONE
                 holder.cartAddButton.visibility = View.GONE
                 holder.cartDeleteButton.visibility = View.GONE
-                holder.spinner.visibility = View.GONE
+
             }
 
             holder.cartQuantity.setTextColor(
@@ -127,32 +126,7 @@ class CartItemsListAdapter(
 
         }
 
-        // Spinner Code
-        val adapter = ArrayAdapter.createFromResource(
-                context,
-                R.array.quality,
-                android.R.layout.simple_spinner_item
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        holder.spinner.adapter = adapter
 
-        holder.spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val selectedItem = parent!!.getItemAtPosition(position)
-                if(selectedItem.toString()=="Full"){
-                    val a = (model.price.toInt()*2)-20
-                    holder.cartPrice.text = "₹${a}"
-                }
-                else if(selectedItem.toString()=="Half"){
-                    holder.cartPrice.text = "₹${model.price}"
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
-        }
     }
 
     override fun getItemCount(): Int {

@@ -3,6 +3,7 @@ package com.capstone.fasttiffin.ui.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.capstone.fasttiffin.R
@@ -17,7 +18,6 @@ class ProductDetailsActivity : BaseActivity(),View.OnClickListener {
     private lateinit var binding: ActivityProductDetailsBinding
 
     private lateinit var mProductDetails: Product
-
 
     private var mProductId: String = ""
 
@@ -49,6 +49,8 @@ class ProductDetailsActivity : BaseActivity(),View.OnClickListener {
         setupActionBar()
 
         getProductDetails()
+
+
     }
 
 
@@ -120,10 +122,34 @@ class ProductDetailsActivity : BaseActivity(),View.OnClickListener {
         )
 
         binding.tvProductDetailsTitle.text = product.title
-        binding.tvProductDetailsPrice.text = "₹${product.price}"
         binding.tvProductDetailsDescription.text = product.description
         binding.tvProductDetailsStockQuantity.text = product.stock_quantity
 
+
+
+
+       if(binding.rbHalf.isChecked){
+           Constants.HALF
+           val productPrice = product.price
+           mProductDetails.price = productPrice.toString()
+           binding.tvProductDetailsPrice.text = "₹${productPrice}"
+        }
+
+        binding.rgQuantity.setOnCheckedChangeListener { _, checkedId ->
+            val radio: RadioButton = findViewById(checkedId)
+            when (radio) {
+                binding.rbHalf -> {
+                    val productPrice = (product.price.toInt()/2+10)
+                   mProductDetails.price = productPrice.toString()
+                   binding.tvProductDetailsPrice.text = "$₹{productPrice}"
+                }
+                binding.rbFull -> {
+                    val productPrice = (product.price.toInt()*2-20)
+                mProductDetails.price = productPrice.toString()
+                 binding.tvProductDetailsPrice.text = "₹${productPrice}"
+                }
+            }
+        }
 
         if(product.stock_quantity.toInt() == 0){
 
@@ -177,5 +203,7 @@ class ProductDetailsActivity : BaseActivity(),View.OnClickListener {
 
         binding.btnGoToCart.visibility = View.VISIBLE
     }
+
+
 
 }

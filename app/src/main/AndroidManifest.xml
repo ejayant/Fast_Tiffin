@@ -11,10 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FastTiffin">
+        <activity android:name=".ui.activities.PhoneAuthVerifyActivity"/>
+        <activity android:name=".ui.activities.PhoneAuthActivity" />
         <activity
             android:name=".ui.activities.MyOrdersDetailsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.FastTiffin.NoActionBarCustom"/>
+            android:theme="@style/Theme.FastTiffin.NoActionBarCustom" />
         <activity
             android:name=".ui.activities.CheckoutActivity"
             android:screenOrientation="portrait"

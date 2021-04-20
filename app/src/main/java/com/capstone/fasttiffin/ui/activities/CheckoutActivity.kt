@@ -129,12 +129,12 @@ class CheckoutActivity :BaseActivity() {
 
         binding.tvCheckoutSubTotal.text = "₹$mSubTotal"
 
-        binding.tvCheckoutShippingCharge.text = "₹10.0"
+        binding.tvCheckoutShippingCharge.text = "₹0.0"
 
         if (mSubTotal > 0) {
             binding.llCheckoutPlaceOrder.visibility = View.VISIBLE
 
-            mTotalAmount = mSubTotal + 10.0
+            mTotalAmount = mSubTotal
             binding.tvCheckoutTotalAmount.text = "₹$mTotalAmount"
         } else {
             binding.llCheckoutPlaceOrder.visibility = View.GONE

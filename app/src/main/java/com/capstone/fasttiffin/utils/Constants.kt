@@ -67,6 +67,10 @@ object Constants {
 
     const val ADMIN: String = "MFMlMJdDAFPkxxRiCPmVS0pySWp1"
 
+    const val HALF: String = "Half"
+
+    const val FULL: String = "Full"
+
     fun showImageChooser(activity: Activity){
         // An intent for launching the image selection of phone storage
         val galleryIntent = Intent(
@@ -76,6 +80,7 @@ object Constants {
         activity.startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST_CODE)
     }
 
+    // For Cloud Storage
     fun getFileExtension(activity: Activity, uri: Uri?): String?{
         /*
         * MimeTypeMap: Two way map that maps MIME-types to file extensions and vice versa.

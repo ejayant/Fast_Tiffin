@@ -17,6 +17,11 @@ class LoginActivity : BaseActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            startActivity(Intent(this,DashboardActivity::class.java))
+            finish()
+        }
         binding.tvRegister.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
@@ -28,6 +33,11 @@ class LoginActivity : BaseActivity() {
 
         binding.tvForgotPassword.setOnClickListener {
             val intent = Intent(this, ForgotPasswordActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnPhone.setOnClickListener {
+            val intent = Intent(this, PhoneAuthActivity::class.java)
             startActivity(intent)
         }
 
@@ -90,4 +100,5 @@ class LoginActivity : BaseActivity() {
         }
         finish()
     }
+
 }

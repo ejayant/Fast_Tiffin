@@ -20,7 +20,7 @@ import com.capstone.fasttiffin.utils.GlideLoader
 import com.google.firebase.auth.FirebaseAuth
 import java.io.IOException
 
-class UserProfileActivity : BaseActivity() {
+class  UserProfileActivity : BaseActivity() {
 
 
     private lateinit var mUserDetails: User
@@ -34,7 +34,6 @@ class UserProfileActivity : BaseActivity() {
         setContentView(binding.root)
 
 
-
         if(intent.hasExtra(Constants.EXTRA_USER_DETAILS)){
             // Get the user details from intent as a ParcelableExtra
             mUserDetails = intent.getParcelableExtra(Constants.EXTRA_USER_DETAILS)!!
@@ -42,14 +41,12 @@ class UserProfileActivity : BaseActivity() {
 
         binding.etFirstName.setText(mUserDetails.firstName)
         binding.etLastName.setText(mUserDetails.lastName)
-        binding.etEmail.isEnabled = false
         binding.etEmail.setText(mUserDetails.email)
+        binding.etMobileNumber.setText(mUserDetails.mobile.toString())
 
         if(mUserDetails.profileCompleted == 0){
             binding.tvTitle.text = resources.getString(R.string.title_profile)
-            binding.etFirstName.isEnabled = false
 
-            binding.etLastName.isEnabled = false
         }
         else{
             setupActionBar()
@@ -93,6 +90,51 @@ class UserProfileActivity : BaseActivity() {
                 }
             }
 
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+            requestCode: Int,
+            permissions: Array<out String>,
+            grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode == Constants.READ_STORAGE_PERMISSION_CODE){
+            // If permission is granted
+            if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+//                showErrorSnackBar("The storage permission is granted.",false)
+                Constants.showImageChooser(this)
+            }
+            else{
+                // Displaying another toast if permission is not granted
+                Toast.makeText(this,resources.getString(R.string.read_storage_permission_denied),
+                        Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == Activity.RESULT_OK){
+            if(requestCode == Constants.PICK_IMAGE_REQUEST_CODE){
+                if(data != null) {
+                    try {
+                        // The uri of selected image from phone storage.
+                        mSelectedImageFileUri = data.data!!
+                        //One way to use without glide
+                        // binding.ivUserPhoto.setImageURI(selectedImageFileUri)
+                        GlideLoader(this).loadUserPicture(mSelectedImageFileUri!!,binding.ivUserPhoto)
+                    }
+                    catch(e: IOException){
+                        e.printStackTrace()
+                        Toast.makeText(this,resources.getString(R.string.image_selection_failed),
+                                Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+        else if(resultCode == Activity.RESULT_CANCELED){
+            Log.e("Request Cancelled", "Image Selection Cancelled")
         }
     }
 
@@ -152,50 +194,7 @@ class UserProfileActivity : BaseActivity() {
         startActivity(Intent(this, DashboardActivity::class.java))
         finish()
     }
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == Constants.READ_STORAGE_PERMISSION_CODE){
-            // If permission is granted
-            if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-//                showErrorSnackBar("The storage permission is granted.",false)
-                Constants.showImageChooser(this)
-            }
-            else{
-                // Displaying another toast if permission is not granted
-                Toast.makeText(this,resources.getString(R.string.read_storage_permission_denied),
-                Toast.LENGTH_LONG).show()
-            }
-        }
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode == Activity.RESULT_OK){
-            if(requestCode == Constants.PICK_IMAGE_REQUEST_CODE){
-                if(data != null) {
-                    try {
-                        // The uri of selected image from phone storage.
-                        mSelectedImageFileUri = data.data!!
-                        //One way to use without glide
-                        // binding.ivUserPhoto.setImageURI(selectedImageFileUri)
-                        GlideLoader(this).loadUserPicture(mSelectedImageFileUri!!,binding.ivUserPhoto)
-                    }
-                    catch(e: IOException){
-                        e.printStackTrace()
-                        Toast.makeText(this,resources.getString(R.string.image_selection_failed),
-                            Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-        }
-        else if(resultCode == Activity.RESULT_CANCELED){
-            Log.e("Request Cancelled", "Image Selection Cancelled")
-        }
-    }
 
 
     // Mobile Number Field

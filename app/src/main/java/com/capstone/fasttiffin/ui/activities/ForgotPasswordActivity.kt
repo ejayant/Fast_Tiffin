@@ -28,7 +28,6 @@ class ForgotPasswordActivity : BaseActivity() {
                             Toast.makeText(this,resources.getString(R.string.email_sent_success),
                             Toast.LENGTH_LONG
                             ).show()
-
                             finish()
                         }
                         else{
